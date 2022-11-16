@@ -65,6 +65,37 @@ int main()
 
     stringstream buffer;
 
+    fstream fout("Bruteforce.csv", ios::out);
+    fout << "Pattern length"
+         << ","
+         << "Data length"
+         << ","
+         << "Number of assign"
+         << ","
+         << "Number of compare"
+         << ",Time" << endl;
+    fout.close();
+    fout.open("KMP.csv", ios::out);
+    fout << "Pattern length"
+         << ","
+         << "Data length"
+         << ","
+         << "Number of assign"
+         << ","
+         << "Number of compare"
+         << ",Time" << endl;
+    fout.close();
+    fout.open("RabinKarp.csv", ios::out);
+    fout << "Pattern length"
+         << ","
+         << "Data length"
+         << ","
+         << "Number of assign"
+         << ","
+         << "Number of compare"
+         << ",Time" << endl;
+    fout.close();
+
     //----------------- handle small data --------------------------------
     file.open("small-data.txt", ios::in);
     buffer << file.rdbuf();
