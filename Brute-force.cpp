@@ -38,6 +38,7 @@ void search_count(string pat, string txt, int &count_Ass, int &count_Comp)
 
         if (++count_Comp && j == M)
         {
+            cout << "Brute force - Match at index " << i << endl;
         } // if pat[0...M-1] = txt[i, i+1, ...i+M-1]
     }
 }

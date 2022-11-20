@@ -54,7 +54,7 @@ int main()
 
     file.close();
 
-    stringstream buffer;
+    stringstream buffer[3];
 
     fstream fout("./result/Bruteforce.csv", ios::out);
     fout << "Pattern length"
@@ -87,41 +87,27 @@ int main()
          << endl;
     fout.close();
 
-    //----------------- handle small data --------------------------------
     file.open("./data/small-data.txt", ios::in);
-    buffer << file.rdbuf();
-
-    for (auto pattern : patterns)
-    {
-        runTestBruteForce(pattern, buffer.str());
-        runTestKMP(pattern, buffer.str());
-        runTestRabinKarp(pattern, buffer.str());
-    }
+    buffer[0] << file.rdbuf();
     file.close();
 
-    //----------------- handle medium data --------------------------------
     file.open("./data/medium-data.txt", ios::in);
-    buffer << file.rdbuf();
-
-    for (auto pattern : patterns)
-    {
-        runTestBruteForce(pattern, buffer.str());
-        runTestKMP(pattern, buffer.str());
-        runTestRabinKarp(pattern, buffer.str());
-    }
+    buffer[1] << file.rdbuf();
     file.close();
 
-    //----------------- handle large data --------------------------------
     file.open("./data/large-data.txt", ios::in);
-    buffer << file.rdbuf();
-
-    for (auto pattern : patterns)
-    {
-        runTestBruteForce(pattern, buffer.str());
-        runTestKMP(pattern, buffer.str());
-        runTestRabinKarp(pattern, buffer.str());
-    }
+    buffer[2] << file.rdbuf();
     file.close();
+
+    for (auto &buf : buffer)
+    {
+        for (auto &pattern : patterns)
+        {
+            runTestBruteForce(pattern, buf.str());
+            runTestKMP(pattern, buf.str());
+            runTestRabinKarp(pattern, buf.str());
+        }
+    }
 
     return 0;
 }

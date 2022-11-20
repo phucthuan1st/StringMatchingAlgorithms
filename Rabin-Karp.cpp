@@ -53,7 +53,7 @@ void rabin_Karp(string P, string T, ull &count_Assign, ull &count_Compare)
                 }
             }
             if (++count_Compare && found)
-                cout << "Match at index " << i << endl;
+                cout << "Rabin Karp - Match at index " << i << endl;
         }
         // if it was not last window, then continue hash computation
         if (++count_Compare && i < n - m)

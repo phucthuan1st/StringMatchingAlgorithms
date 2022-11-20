@@ -68,6 +68,7 @@ vector<int> KMP(string pattern, string text, int &count_Ass, int &count_Cmp)
         if (++count_Cmp && j == m)
         {
             result.push_back(i - m);
+            cout << "KMP - Match at index " << i - m << endl;
             j = lps[j - 1];
             count_Ass++;
         }
