@@ -19,8 +19,10 @@ void rabin_Karp(string P, string T, ull &count_Assign, ull &count_Compare)
 
     ++count_Assign;
     for (ull i = 0; ++count_Compare && i < m - 1; ++count_Assign && i++)
+    {
         x_m = (x_m * x) % q;
-    ++count_Assign;
+        ++count_Assign;
+    }
 
     // hash of pattern and first window of text
     ++count_Assign;
@@ -64,21 +66,3 @@ void rabin_Karp(string P, string T, ull &count_Assign, ull &count_Compare)
         }
     }
 }
-
-// int main()
-// {
-//     clock_t start, end;
-//     double duration;
-//     // string p = "AABA";
-//     // string t = "AABAACAADAABAABAAABAACBABAABAAADCBABAABDABAAABAAA";
-
-//     string p = "ABCA";
-//     string t = "AABCAAABCAADAABAABCAB";
-
-//     start = clock();
-//     rabin_Karp(t, p);
-//     end = clock();
-//     duration = (double)(end - start) / CLOCKS_PER_SEC;
-//     cout << "Time: " << duration << endl;
-//     return 0;
-// }

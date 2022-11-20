@@ -87,17 +87,3 @@ vector<int> KMP(string pattern, string text, int &count_Ass, int &count_Cmp)
     }
     return result;
 }
-
-// int main()
-// {
-//     string text = "heheheheeheheheh";
-//     string pattern = "h";
-
-//     vector<int> res = KMP(pattern, text);
-//     for (int i = 0; i < res.size(); i++)
-//     {
-//         cout << res[i] << " ";
-//     }
-
-//     return 0;
-// }

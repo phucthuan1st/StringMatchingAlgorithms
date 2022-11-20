@@ -7,7 +7,7 @@ void runTestBruteForce(string pattern, string data)
 
     search_count(pattern, data, count_assign, count_compare);
 
-    fstream fout("Bruteforce.csv", ios::app);
+    fstream fout("./result/Bruteforce.csv", ios::app);
     fout << pattern.length() << "," << data.length() << "," << count_assign << ","
          << count_compare << endl;
     fout.close();
@@ -20,7 +20,7 @@ void runTestKMP(string pattern, string data)
 
     KMP(pattern, data, count_assign, count_compare);
 
-    fstream fout("KMP.csv", ios::app);
+    fstream fout("./result/KMP.csv", ios::app);
     fout << pattern.length() << "," << data.length() << "," << count_assign << ","
          << count_compare << endl;
     fout.close();
@@ -33,7 +33,7 @@ void runTestRabinKarp(string pattern, string data)
 
     rabin_Karp(pattern, data, count_assign, count_compare);
 
-    fstream fout("RabinKarp.csv", ios::app);
+    fstream fout("./result/RabinKarp.csv", ios::app);
     fout << pattern.length() << "," << data.length() << "," << count_assign << ","
          << count_compare << endl;
     fout.close();
@@ -42,7 +42,7 @@ void runTestRabinKarp(string pattern, string data)
 int main()
 {
     vector<string> patterns;
-    fstream file("patterns.txt", ios::in);
+    fstream file("data/patterns.txt", ios::in);
 
     //----------------- READ PATTERN --------------------------------
     string temp;
@@ -56,7 +56,7 @@ int main()
 
     stringstream buffer;
 
-    fstream fout("Bruteforce.csv", ios::out);
+    fstream fout("./result/Bruteforce.csv", ios::out);
     fout << "Pattern length"
          << ","
          << "Data length"
@@ -66,7 +66,7 @@ int main()
          << "Number of compare"
          << endl;
     fout.close();
-    fout.open("KMP.csv", ios::out);
+    fout.open("./result/KMP.csv", ios::out);
     fout << "Pattern length"
          << ","
          << "Data length"
@@ -76,7 +76,7 @@ int main()
          << "Number of compare"
          << endl;
     fout.close();
-    fout.open("RabinKarp.csv", ios::out);
+    fout.open("./result/RabinKarp.csv", ios::out);
     fout << "Pattern length"
          << ","
          << "Data length"
@@ -88,7 +88,7 @@ int main()
     fout.close();
 
     //----------------- handle small data --------------------------------
-    file.open("small-data.txt", ios::in);
+    file.open("./data/small-data.txt", ios::in);
     buffer << file.rdbuf();
 
     for (auto pattern : patterns)
@@ -100,7 +100,7 @@ int main()
     file.close();
 
     //----------------- handle medium data --------------------------------
-    file.open("medium-data.txt", ios::in);
+    file.open("./data/medium-data.txt", ios::in);
     buffer << file.rdbuf();
 
     for (auto pattern : patterns)
@@ -112,7 +112,7 @@ int main()
     file.close();
 
     //----------------- handle large data --------------------------------
-    file.open("large-data.txt", ios::in);
+    file.open("./data/large-data.txt", ios::in);
     buffer << file.rdbuf();
 
     for (auto pattern : patterns)
